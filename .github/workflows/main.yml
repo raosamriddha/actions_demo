@@ -1,0 +1,15 @@
+name: Lines count
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: line count with gradle
+      run: git ls-files | xargs wc -l
