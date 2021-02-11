@@ -10,6 +10,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: line count with gradle
-      run: git ls-files | xargs wc -l
+    - name: Count Lines of Code (cloc)
+      uses: djdefi/cloc-action@3
