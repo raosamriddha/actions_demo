@@ -16,7 +16,6 @@ jobs:
       working-directory: ./Backend/src/main
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
     - name: Build failure
-      if: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l == 0
       run: /gradlew builddbb
     
          
