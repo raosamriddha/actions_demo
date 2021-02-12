@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check class file length > 500
-      run: cd ./Backend/src/main/java
-           git ls-files | xargs wc --l | sort -rn | awk '$1 > 500'
+    - name: Check class file length - Backend
+      working-directory: cd ./Backend/src/main/java
+      run: git ls-files | xargs wc --l | sort -rn | awk '$1 > 500'
