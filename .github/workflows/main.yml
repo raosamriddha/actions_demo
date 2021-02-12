@@ -18,3 +18,7 @@ jobs:
     - name: Check class file length - Backend
       working-directory: ./Backend/src/main
       run: git ls-files | xargs wc --l | sort -rn | awk '$1 > 500'
+    - name: Check job status  
+      if: git ls-files | xargs wc -l | awk '$1 > 500'| tail -n +3 | wc -l > 0
+      run: exit 1
+
