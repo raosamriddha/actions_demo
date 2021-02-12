@@ -24,8 +24,15 @@ jobs:
       run : echo ::set-output name=key::$(git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l)
     - name: Count of files having 500+ lines
       if: steps.line_count.outputs.key > 0
-      run: echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
-    - name : Build gradle
-      if: steps.line_count.outputs.key == 0
-      run: ./gradlew build
-  
+      run: |
+       echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
+       end task
+  build:
+     runs-on: ubuntu-latest
+     defaults:
+      run:
+        working-directory: ./Backend
+     needs: check
+     steps:
+     - name: Build with Gradle
+       run: ./gradlew build
