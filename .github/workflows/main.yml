@@ -7,10 +7,25 @@ on:
 
 jobs:
   build:
-    continue-on-error: false
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
     steps:
+  
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.13
     - name: Check class file length - Backend
-      working-directory: ./Backend/src/main/java
-      run: if [(git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l) > 0] then exit 1; fi
-    
+      working-directory: ./Backend/src/main
+      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
+    - name: Count files
+      working-directory: ./Backend/src/main
+      id: step1
+      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
+    - name: Job action
+      if: steps.step1.outputs > 0
+      run: exit 1
+      
+  
