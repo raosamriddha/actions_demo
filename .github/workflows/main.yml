@@ -15,17 +15,10 @@ jobs:
     - name: Check class file length - Backend
       working-directory: ./Backend/src/main
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
-    - name: Count files
-      working-directory: ./Backend/src/main
-      id: step1
-      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Build failure
-      if: steps.step1.outputs > 0
+      if: (git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l) == 0
       run: /gradlew builddbb
-    - name: Build Success
-      if: steps.step1.outputs == 0
-      run: /gradlew build
-      
+    
          
       
   
