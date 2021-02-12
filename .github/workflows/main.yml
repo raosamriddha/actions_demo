@@ -7,8 +7,8 @@ on:
 
 jobs:
   build:
+    continue-on-error: false
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -22,7 +22,6 @@ jobs:
       id: step1
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Job action
-      continue-on-error: false
       if: steps.step1.outputs > 0
       run: exit 1
       
