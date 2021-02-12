@@ -20,10 +20,15 @@ jobs:
       working-directory: ./Backend/src/main
       id: step1
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
-    - name: Job action
-      id: step2
+    - name: Build failure
+      if: steps.step1.outputs > 0
+      run: |
+        echo "Listed classes exceed the required line limit"
+        /gradlew buildd
+    - name: Build Success
       if: steps.step1.outputs == 0
       run: /gradlew build
+      
          
       
   
