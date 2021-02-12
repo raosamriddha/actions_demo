@@ -22,11 +22,8 @@ jobs:
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Job action
       id: step2
-      if: steps.step1.outputs > 0
-      run: failure()
-    - name: Build application
-      if: success()      
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.13
+      if: steps.step1.outputs == 0
+      run: /gradlew build
+         
+      
   
