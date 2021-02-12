@@ -28,7 +28,7 @@ jobs:
       if: steps.test.outputs.key > 0
       run: |
        echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
-       gradlew build
+       throw new Error('Whoops!')
   build:
      runs-on: ubuntu-latest
      defaults:
