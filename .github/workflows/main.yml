@@ -26,9 +26,9 @@ jobs:
       run : echo ::set-output name=key::$(git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l)
     - name: Job count
       if: steps.test.outputs.key > 0
-      run: |
-       echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
-       throw new Error('Whoops!')
+      with:
+       script: | 
+        throw new Error('Whoops!')
   build:
      runs-on: ubuntu-latest
      defaults:
