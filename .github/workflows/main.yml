@@ -7,22 +7,32 @@ on:
 
 jobs:
   check:
+    continue-on-error: false
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: Check class file length - Backend
       working-directory: ./Backend/src/main
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
     - name: Count files
       id: step1
-      run: gradle builddd
-  work:
+      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
+    - name: Job action
+      if: steps.step1.outputs > 0
+      run: exit 1
+  build:
      runs-on: ubuntu-latest
+     defaults:
+      run:
+        working-directory: ./Backend
      needs: check
      steps:
-      - run: gradle build
-      
-      
-
-    
-
+     - uses: actions/checkout@v2
+     - name: Set up JDK 1.8
+       uses: actions/setup-java@v1
+       with:
+        java-version: 1.8
+     - name: Grant execute permission for gradlew
+       run: chmod +x gradlew
+     - name: Build with Gradle
+       run: ./gradlew build
+  
