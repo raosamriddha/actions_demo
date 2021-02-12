@@ -20,14 +20,9 @@ jobs:
       with:
        java-version: 1.8
     - name: Check class file length - Backend
-      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 20000'
-    - name: Count files
-      id: step1
-      run: |
-       out = git ls-files | xargs wc -l | sort -r | awk '$1 > 20000'| tail -n +2 | wc -l
-       echo "::set-output name=count::$out"
+      run: git ls-files | xargs wc -l | sort -rn | awk '$1 > 500'
     - name: Job action
-      if: ${{needs.check.outputs.output1}} > 0
+      if: (git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l) > 0
       run: |
        echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
        gradlew build
