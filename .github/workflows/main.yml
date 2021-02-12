@@ -23,7 +23,7 @@ jobs:
       run: git ls-files | xargs wc -l | sort -rn | awk '$1 > 100000'
     - name: Job action
       id: test
-      run : echo ::set-output name=key::git ls-files | xargs wc -l | sort -r | awk '$1 > 100000'| tail -n +2 | wc -l
+      run : echo ::set-output name=key::$(git ls-files | xargs wc -l | sort -r | awk '$1 > 100000'| tail -n +2 | wc -l)
     - name: Job count
       if: steps.test.outputs.key > 0
       run: |
