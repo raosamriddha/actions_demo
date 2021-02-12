@@ -26,6 +26,6 @@ jobs:
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Job action
       if: steps.step1.outputs > 0
-      run: exit 1
+      uses: andymckay/cancel-action@0.2
       
   
