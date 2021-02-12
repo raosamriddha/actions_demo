@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Check class file length - Backend
       run: |
-        cd ./Backend/src/main/java
+        cd actions_demo/Backend/src/main/java
         git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
         if [(git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l) > 0] then exit 1; fi
     
