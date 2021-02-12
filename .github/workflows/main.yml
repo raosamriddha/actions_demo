@@ -11,5 +11,5 @@ jobs:
 
     steps:
     - name: Check class file length - Backend
-      working-directory: cd actions_demo/Backend/src/main/java
+      working-directory: ./Backend/src/main/java
       run: git ls-files | xargs wc --l | sort -rn | awk '$1 > 500'
