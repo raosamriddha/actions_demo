@@ -25,13 +25,7 @@ jobs:
     - name: Count of files having 500+ lines
       if: steps.line_count.outputs.key > 0
       run: echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
-  build:
-     runs-on: ubuntu-latest
-     defaults:
-      run:
-        working-directory: ./Backend
-     needs: check
-     steps:
-     - name: Build with Gradle
-       run: ./gradlew build
+    - name : Build gradle
+      if: steps.line_count.outputs.key == 0
+      run: ./gradlew build
   
