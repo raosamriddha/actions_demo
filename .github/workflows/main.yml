@@ -6,10 +6,9 @@ on:
     - main
 
 jobs:
+ 
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
     steps:
 
     - uses: actions/checkout@v2
@@ -22,9 +21,7 @@ jobs:
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Build failure
       if: steps.step1.outputs > 0
-      run: |
-        echo "Listed classes exceed the required line limit"
-        /gradlew buildd
+      run: /gradlew builddbb
     - name: Build Success
       if: steps.step1.outputs == 0
       run: /gradlew build
