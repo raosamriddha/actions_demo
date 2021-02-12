@@ -17,11 +17,13 @@ jobs:
         java-version: 1.13
     - name: Check class file length - Backend
       working-directory: ./Backend/src/main
-      run: git ls-files | xargs wc --l | sort -rn | awk '$1 > 500'
+      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
     - name: Count files
       id: step1
-      run: git ls-files | xargs wc -l | awk '$1 > 500'| tail -n +3 | wc -l
-    - name: Check run status
+      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
+    - name: Job action
+      continue-on-error: false
       if: steps.step1.outputs > 0
       run: exit 1
-
+      
+  
