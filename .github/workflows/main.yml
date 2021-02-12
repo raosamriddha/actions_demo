@@ -11,6 +11,8 @@ jobs:
       run:
         working-directory: ./Backend/src/main
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.count }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -21,9 +23,9 @@ jobs:
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
     - name: Count files
       id: step1
-      run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
+      run: echo "::set-output name=count::" + git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Job action
-      if: steps.step1.outputs > 0
+      if: ${{needs.job1.outputs.output1}} > 0
       run: |
        gradlew build
        echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
