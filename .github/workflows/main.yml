@@ -7,11 +7,13 @@ on:
 
 jobs:
   check:
+    defaults:
+      run:
+        working-directory: ./Backend/src/main
     continue-on-error: false
     runs-on: ubuntu-latest
     steps:
     - name: Check class file length - Backend
-      working-directory: ./Backend/src/main
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'
     - name: Count files
       id: step1
