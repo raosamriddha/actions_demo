@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SystemSettings",
+		"_postman_id": "28dbc8e5-5ad8-4a28-ce87-5ebe69ca1a38",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9999/rest/spectrum/settings",
+			"request": {
+				"url": "http://localhost:9999/rest/spectrum/settings",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9999/rest/spectrum/settings",
+			"request": {
+				"url": "http://localhost:9999/rest/spectrum/settings",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pressureUnit\": 1,\n    \"weightUnit\": 2,\n    \"volumeUnit\": 2,\n    \"lengthUnit\": 3,\n    \"decimalPressure\": 2,\n    \"decimalWeight\": 3,\n    \"decimalFlowRate\": 2,\n    \"decimalVolume\": 3,\n    \"decimalLength\": 2,\n    \"dateFormat\": 1,\n    \"isAUXkonduit\": 1,\n    \"isAUXkonduit_2\": 1,\n    \"uvMin\": 0,\n    \"uvMax\": 2,\n    \"phMin\": 7,\n    \"phMax\": 14,\n    \"phMin_2\": 5.2,\n    \"phMax_2\": 6.2,\n    \"turbidityMin\": 1.2,\n    \"turbidityMax\": 2.2,\n    \"turbidityMin_2\": 10,\n    \"turbidityMax_2\": 200,\n    \"totalizerMin\": 3.2,\n    \"totalizerMax\": 4.2,\n    \"totalizerMin_2\": 7.2,\n    \"totalizerMax_2\": 8.2,\n    \"proteinConcMin\": 9.2,\n    \"proteinConcMax\": 11.2,\n    \"proteinConcMin_2\": 10.2,\n    \"proteinConcMax_2\": 12.2,\n    \"totalizerUnit\": 0,\n    \"totalizerUnit_2\": 1,\n    \"digital_username\": \"Mohit_001\",\n    \"digital_password\": \"Mohit_001\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

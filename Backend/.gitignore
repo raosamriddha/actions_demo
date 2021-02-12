@@ -1,0 +1,46 @@
+# maven noise
+target/
+
+# gradle noise
+.gradle
+*.log
+*.bat
+
+# osx noise
+.DS_Store
+profile
+
+# IntelliJ Idea noise
+.idea
+*.iws
+*.ipr
+*.iml
+*.releaseBackup
+Downloads/
+log/
+jre/
+
+*.db
+
+atlassian-ide-plugin.xml
+
+
+# NB noise
+nbactions.xml
+nb-configuration.xml
+
+# Eclipse noise
+.settings
+.settings/*
+.project
+.classpath
+/bin
+/subprojects/*/bin
+atlassian-ide-plugin.xml
+.metadata/
+
+# Maven plugins noise
+dependency-reduced-pom.xml
+pom.xml.versionsBackup
+
+commit

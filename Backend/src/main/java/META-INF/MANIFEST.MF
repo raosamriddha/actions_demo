@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Class-Path: jersey-common-2.26.jar maven-plugin-descriptor-2.0.6.jar o
+ rg.eclipse.persistence.core-2.6.4.jar plexus-container-default-1.0-al
+ pha-9-stable-1.jar wagon-ssh-common-1.0-beta-2.jar javassist-3.22.0-C
+ R2.jar jersey-container-servlet-core-2.26.jar wagon-file-1.0-beta-2.j
+ ar org.eclipse.persistence.moxy-2.6.4.jar netty-codec-4.0.25.Final.ja
+ r jersey-client-2.26.jar netty-handler-4.0.25.Final.jar jetty-server-
+ 9.4.0.v20161208.jar aopalliance-repackaged-2.5.0-b42.jar plexus-utils
+ -2.0.5.jar netty-transport-4.0.25.Final.jar jersey-media-jaxb-2.26.ja
+ r plexus-interpolation-1.13.jar jetty-io-9.4.0.v20161208.jar jtidy-4a
+ ug2000r7-dev.jar maven-artifact-manager-2.0.6.jar maven-resources-plu
+ gin-2.4.3.jar xml-apis-1.0.b2.jar jackson-core-2.4.3.jar junit-3.8.1.
+ jar jersey-container-netty-http-2.26.jar maven-settings-2.0.6.jar wag
+ on-ssh-1.0-beta-2.jar netty-buffer-4.0.25.Final.jar jsch-0.1.27.jar j
+ ersey-hk2-2.26.jar jetty-http-9.4.0.v20161208.jar json-20180813.jar m
+ aven-repository-metadata-2.0.6.jar netty-socketio-1.7.7.jar maven-err
+ or-diagnostics-2.0.6.jar jetty-util-9.4.0.v20161208.jar classworlds-1
+ .1.jar wagon-http-shared-1.0-beta-2.jar maven-reporting-api-2.0.6.jar
+  validation-api-1.1.0.Final.jar netty-codec-http-4.0.25.Final.jar mav
+ en-profile-2.0.6.jar netty-common-4.0.25.Final.jar maven-project-2.0.
+ 6.jar jetty-servlet-9.4.0.v20161208.jar osgi-resource-locator-1.0.1.j
+ ar maven-filtering-1.0-beta-4.jar netty-all-4.1.5.Final.jar maven-plu
+ gin-api-2.0.6.jar wagon-provider-api-1.0-beta-2.jar maven-plugin-regi
+ stry-2.0.6.jar maven-monitor-2.0.6.jar maven-artifact-2.0.6.jar jerse
+ y-entity-filtering-2.26.jar jersey-netty-connector-2.26.jar maven-cor
+ e-2.0.6.jar javax.json-1.0.4.jar javax.inject-1.jar netty-transport-n
+ ative-epoll-4.0.25.Final.jar maven-plugin-parameter-documenter-2.0.6.
+ jar jersey-server-2.26.jar jetty-security-9.4.0.v20161208.jar org.ecl
+ ipse.persistence.asm-2.6.4.jar plexus-interactivity-api-1.0-alpha-4.j
+ ar hk2-utils-2.5.0-b42.jar slf4j-api-1.7.7.jar maven-model-2.0.6.jar 
+ jersey-media-moxy-2.26.jar jackson-annotations-2.4.0.jar jetty-contin
+ uation-9.4.3.v20170317.jar jersey-container-jetty-http-2.26.jar javax
+ .inject-2.5.0-b42.jar commons-cli-1.0.jar doxia-sink-api-1.0-alpha-7.
+ jar javax.ws.rs-api-2.1.jar jackson-databind-2.4.3.jar hk2-api-2.5.0-
+ b42.jar javax.annotation-api-1.2.jar javax.servlet-api-3.1.0.jar wago
+ n-http-lightweight-1.0-beta-2.jar wagon-ssh-external-1.0-beta-2.jar p
+ lexus-build-api-0.0.4.jar hk2-locator-2.5.0-b42.jar sqlite-jdbc-3.15.
+ 1.jar
+Main-Class: org.lattice.spectrum_backend_final.Main
+
