@@ -10,7 +10,6 @@ jobs:
     defaults:
       run:
         working-directory: ./Backend/src/main
-    continue-on-error: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,7 +24,9 @@ jobs:
       run: git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l
     - name: Job action
       if: steps.step1.outputs > 0
-      run: exit 1
+      run: |
+       gradlew build
+       echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
   build:
      runs-on: ubuntu-latest
      defaults:
