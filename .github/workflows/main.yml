@@ -23,7 +23,7 @@ jobs:
     - name: Job action
       id: step2
       if: steps.step1.outputs > 0
-      run: exit 1
+      run: failure()
     - name: Build application
       if: success()      
       uses: actions/setup-java@v1
