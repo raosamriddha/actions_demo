@@ -1,4 +1,4 @@
-name: Class Length Action
+name: Class Length Action/
 
 on:
   push:
