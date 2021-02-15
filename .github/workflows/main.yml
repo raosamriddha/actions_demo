@@ -1,4 +1,4 @@
-name: Lines count
+name: Class Length Action
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
     - main
 
 jobs:
-  check:
+  count-lines:
     defaults:
       run:
         working-directory: ./Backend/src/main
@@ -30,7 +30,7 @@ jobs:
       run: |
        echo "THE CLASSES LISTED CROSS THE MAXIMUM ALLOWED LIMIT"
        end task
-  build:
+  build-application:
      runs-on: ubuntu-latest
      defaults:
       run:
