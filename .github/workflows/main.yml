@@ -21,10 +21,10 @@ jobs:
       with:
        java-version: 1.8
     - name: Files having 500+ lines
-      run: git ls-files | xargs wc -l | sort -rn | awk '$1 > 1000000'
+      run: git ls-files | xargs wc -l | sort -rn | awk '$1 > 500'
     - name: Check class file length - Backend 
       id: line_count
-      run : echo ::set-output name=key::$(git ls-files | xargs wc -l | sort -r | awk '$1 > 1000000'| tail -n +2 | wc -l)
+      run : echo ::set-output name=key::$(git ls-files | xargs wc -l | sort -r | awk '$1 > 500'| tail -n +2 | wc -l)
     - name: Count of files having 500+ lines
       if: steps.line_count.outputs.key > 0
       run: |
