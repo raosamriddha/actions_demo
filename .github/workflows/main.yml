@@ -44,8 +44,8 @@ jobs:
           server_port: 465
           username: gitnotification.lattice@gmail.com
           password: Lattice@123
-          subject: Github Actions job result
-          body: Build job of ${{github.repository}} completed successfully!
+          subject: Github Actions result - Class length
+          body: Build job of ${{github.repository}} - ${{ github.head_ref }} completed successfully!
           to: rao.samriddha@gmail.com
           from: gitnotification.lattice@gmail.com
           content_type: text/html
