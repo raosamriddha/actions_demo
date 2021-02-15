@@ -1,4 +1,4 @@
-name: Class Length Action - ${{ github.event.repository.name }}
+name: Class Length Action
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
       server_port: 465
       username: gitnotification.lattice@gmail.com
       password: Lattice@123
-      subject: Github Actions result - Class length
+      subject: Github Actions/Class length - ${{ github.event.repository.name }}
       to: rao.samriddha@gmail.com
       from: gitnotification.lattice@gmail.com
       content_type: text/html
