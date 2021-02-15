@@ -45,7 +45,7 @@ jobs:
           username: gitnotification.lattice@gmail.com
           password: Lattice@123
           subject: Github Actions result - Class length
-          body: Build job of ${{github.repository}} - ${{ github.head_ref }}, ${{ github.sha }} completed successfully!
+          body: Build job of ${{github.repository}} - ${{ github.head_ref }}, ${{ github.author }}, ${{ github.author }}, ${{ github.event.number }} completed successfully!
           to: rao.samriddha@gmail.com
           from: gitnotification.lattice@gmail.com
           content_type: text/html
