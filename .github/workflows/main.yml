@@ -54,7 +54,7 @@ jobs:
           server_port: ${{env.server_port}}
           username: ${{env.username}}
           password: ${{env.password}}
-          subject: Github Actions result - Class length
+          subject: ${{env.subject}}
           body: Build job of the pull request - https://github.com/raosamriddha/actions_demo/pull/${{ github.event.number }} created by - ${{ github.event.pull_request.user.login }} completed successfully!
           to: ${{env.to}}
           from: ${{env.from}}
@@ -67,7 +67,7 @@ jobs:
           server_port: ${{env.server_port}}
           username: ${{env.username}}
           password: ${{env.password}}
-          subject: Github Actions result - Class length
+          subject: ${{env.subject}}
           body: Build job of the latest commit completed successfully!
           to: ${{env.to}}
           from: ${{env.from}}
