@@ -35,17 +35,40 @@ jobs:
      defaults:
       run:
         working-directory: ./Backend
+     env:
+      server_address:  smtp.gmail.com
+      server_port: 465
+      username: gitnotification.lattice@gmail.com
+      password: Lattice@123
+      subject: Github Actions/Class length - ${{ github.event.repository.name }}
+      to: rao.samriddha@gmail.com
+      from: gitnotification.lattice@gmail.com
+      content_type: text/html
      needs: check
      steps:
-      - name: Checks passed
+      - name: Checks passed - Pull Request
+        if: ${{ github.event.number }} > 0
         uses: dawidd6/action-send-mail@v2
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: gitnotification.lattice@gmail.com
-          password: Lattice@123
-          subject: Github Actions result - Class length
+          server_address: ${{env.server_address}}
+          server_port: ${{env.server_port}}
+          username: ${{env.username}}
+          password: ${{env.password}}
+          subject: ${{env.subject}}
           body: Build job of the pull request - https://github.com/raosamriddha/actions_demo/pull/${{ github.event.number }} created by - ${{ github.event.pull_request.user.login }} completed successfully!
-          to: rao.samriddha@gmail.com
-          from: gitnotification.lattice@gmail.com
-          content_type: text/html
+          to: ${{env.to}}
+          from: ${{env.from}}
+          content_type: ${{env.content_type}}
+      - name: Checks passed - Push
+        if: ${{ github.event.number }} ! > 0
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: ${{env.server_address}}
+          server_port: ${{env.server_port}}
+          username: ${{env.username}}
+          password: ${{env.password}}
+          subject: ${{env.subject}}
+          body: Build job of the latest commit completed successfully!
+          to: ${{env.to}}
+          from: ${{env.from}}
+          content_type: ${{env.content_type}}
