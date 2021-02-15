@@ -37,7 +37,7 @@ jobs:
         working-directory: ./Backend
      needs: check
      steps:
-      - name: Checkes passed
+      - name: Checks passed
         uses: dawidd6/action-send-mail@v2
         with:
           server_address: smtp.gmail.com
@@ -47,7 +47,7 @@ jobs:
           subject: Github Actions job result
           body: Build job of ${{github.repository}} completed successfully!
           to: rao.samriddha@gmail.com
-          from: Lattice git
+          from: gitnotification.lattice@gmail.com
           content_type: text/html
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
