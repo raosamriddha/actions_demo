@@ -45,6 +45,7 @@ jobs:
           username: gitnotification.lattice@gmail.com
           password: Lattice@123
           subject: Github Actions result - Class length
+          if: ${{ github.event.number }} > 0
           body: Build job of the pull request - https://github.com/raosamriddha/actions_demo/pull/${{ github.event.number }} created by - ${{ github.event.pull_request.user.login }} completed successfully!
           to: rao.samriddha@gmail.com
           from: gitnotification.lattice@gmail.com
