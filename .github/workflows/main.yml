@@ -1,4 +1,4 @@
-name: Lines count
+name: Class Length Action
 
 on:
   push:
