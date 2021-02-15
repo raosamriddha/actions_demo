@@ -60,7 +60,7 @@ jobs:
           from: ${{env.from}}
           content_type: ${{env.content_type}}
       - name: Checks passed - Push
-        if: ! ${{ github.event.number }} > 0
+        if: ${{ github.event.number }} ! > 0
         uses: dawidd6/action-send-mail@v2
         with:
           server_address: ${{env.server_address}}
